@@ -2,6 +2,9 @@
 
 int main(void)
 {
+  /**
+     * Initialization inspired by TI resource center.
+  */
   WDTCTL = WDTPW + WDTHOLD;                 // Stop WDT
   /*Configure ADC*/
   ADC12CTL0 = ADC12SHT02 + ADC12ON;         // Sampling time, ADC12 on
@@ -30,7 +33,7 @@ int main(void)
   }
 }
 
-/*ADC Interrupt*/
+/*ADC Interrupt inspired by TI*/
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
 #pragma vector = ADC12_VECTOR
 __interrupt void ADC12_ISR(void)
