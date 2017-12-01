@@ -6,6 +6,9 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
+    /**
+     * Initialization inspired by TI resource center.
+     */
     /* Configures Timer*/
     TA0CTL = TASSEL_2 + MC_1 ;       // SMCLK / Upmode
     TA0CCTL0 = (CCIE);              //CCTL1 Compare/Capture Interrupt Enable
