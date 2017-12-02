@@ -1,6 +1,7 @@
 
 
 //MSP430FR6989
+// Matt and Austin
 //Displays value from ADC
 
 #include "msp430.h"
@@ -29,6 +30,9 @@ int main(void)
     showChar('0',6);
 
 
+    /**
+     * Initialization inspired by TI resource center.
+     */
     /*Sets output to NOT GPIO for LED*/
     P1OUT &= ~BIT0;                         // Clear LED to start
     P1DIR |= BIT0;                          // Set P1.0/LED to output
@@ -65,7 +69,7 @@ int main(void)
 
 
 
-/* ADC Interrupt*/
+/* ADC Interrupt inspired by TI*/
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
 #pragma vector = ADC12_VECTOR
 __interrupt void ADC12_ISR(void)
